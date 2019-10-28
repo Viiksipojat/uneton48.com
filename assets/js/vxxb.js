@@ -65,6 +65,38 @@ document.querySelectorAll("#navigation li").forEach(function(li) {
 })
 document.querySelector("#navigation").classList.remove("hidden")
 
+// lazy loader vimeo player play button
+document.querySelectorAll("figure > button").forEach(function(btn) {
+	btn.addEventListener("click", function(e) {
+		var figure = btn.parentElement
+		var vimeo = figure.querySelector("iframe[data-src]")
+		// console.log(figure)
+
+		// igniteeeee
+		figure.classList.add("load")
+		vimeo.setAttribute("allowfullscreen", "")
+		vimeo.setAttribute("allow", "fullscreen, autoplay")
+
+		// WARNING we assume no previous parameters
+		vimeo.src = vimeo.dataset.src + "?transparent=false&autoplay=true"
+
+		// coustom fun
+		var player = new Vimeo.Player(vimeo)
+		player.on("loaded", function(e) {
+			console.info("loaded", e)
+			// player.play()
+		})
+		player.on("play", function(e) {
+			// console.info("play", e)
+			figure.classList.add("play")
+		})
+		player.on("pause", function(e) {
+			// console.info("pause", e)
+			figure.classList.remove("play")
+		})
+	})
+})
+
 
 // <TEMPLATE> COMPONENTS (autoloaded in the beginning)
 

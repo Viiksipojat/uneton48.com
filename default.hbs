@@ -45,6 +45,14 @@
 </head>
 <body class="{{body_class}}">
 
+    {{!-- special svg reuse include --}}
+    <svg xmlns="http://www.w3.org/2000/svg" class="hide">
+        <symbol id="vimeo-play" viewBox="0 0 20 20" preserveAspectRatio="xMidYMid" focusable="false" aria-labelledby="play-icon-title" role="img">
+            <title id="play-icon-title">Play</title>
+            <polygon class="fill" points="1,0 20,10 1,20"></polygon>
+        </symbol>
+    </svg>
+
     {{>header}}
 
     {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
