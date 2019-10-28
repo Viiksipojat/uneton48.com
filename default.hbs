@@ -11,6 +11,25 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    {{!-- Styles'n'Scripts --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "built/iikko.css"}}" />
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600,700|Open+Sans:400,700" rel="stylesheet">
+
+    <script defer src="{{asset "js/vxxb.js"}}"></script>
+    <script defer src="{{asset "js/fitvids.vanilla.js"}}"></script>
+    
+    <script>
+        // Set the options to make LazyLoad self-initialize
+        window.lazyLoadOptions = {
+            elements_selector: ".lazy",
+            // ... more custom settings?
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.0.0/dist/lazyload.min.js"></script>
+    
+    {{!-- maybe load iframes faster…? --}}
+    <script async src="https://player.vimeo.com/api/player.js"></script>
+
     {{! DEVELOPMENT ONLY HEH HEH }}
     <script src="http://localhost:35729/livereload.js"></script>
 

@@ -1,0 +1,531 @@
+:root {
+	--main-width: 960px;
+	--filmgrid-width: 1400px;
+    --linkborderbottom: 0.25em solid;
+    --nav-font-size: 1em;
+    --heading-font-family: 'IBM Plex Mono', monospace;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	font-family: 'Open Sans', sans-serif;
+
+	// protect ios9 flex-shrinkage
+	min-height: 100%;
+	
+	> * {
+		padding: 0 1em;
+
+		> nav {
+			padding: 0 calc((100% - 960px)/2);
+			border-bottom: 1px solid #ddd;
+			padding-bottom: 1em;
+			margin: 0 -1em;
+		}
+
+		> *:not(nav) {
+			max-width: var(--main-width);
+			margin: auto;
+		}
+	}
+}
+
+main {
+	// take available space 
+	flex-grow: 1;
+}
+
+/* custom articles */
+article.post {
+	margin-bottom: 4em;
+}
+article.tag-filmgrid {
+	position: relative;
+	max-width: var(--filmgrid-width);
+}
+
+nav {
+	font-family: var(--heading-font-family);
+	font-weight: bold;
+
+	.site-nav-logo {
+		display: inline-block;
+		margin-right: 2em;
+
+		img {
+			height: 4em;
+			/* align to baseline */
+			margin-bottom: -0.5em;
+		}
+	}
+
+	svg {
+		width: 20px;
+		fill: white;
+	}
+
+	ul {
+		display: inline-block;
+		list-style: none;
+		padding-left: 0;
+		margin: 0;
+	}
+
+	.nav a:hover {
+		border-bottom: var(--linkborderbottom);
+	}
+
+	li.nav-current a {
+		border-bottom: var(--linkborderbottom);
+		pointer-events: none;
+	}
+
+	&.social a {
+		display: inline-block;
+		background: black;
+		line-height: 0;
+		padding: 3px;
+		border-radius: 50%;
+	}
+
+	&.site-nav {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+
+		ul > li {
+			display: inline-block;
+			padding-left: 1em;
+		}
+	}
+
+	.site-nav-left ul, .site-nav-right {
+		font-size: var(--nav-font-size);
+	}
+
+	/* aside lang */
+	.site-nav-right {
+		margin: 0 1em;
+		flex-shrink: 0;
+		font-weight: 600;
+
+		a.current {
+			border-bottom: 0.2em solid;
+			pointer-events: none;
+		}
+		a:hover {
+			border-bottom: 0.2em solid;
+		}
+	}
+}
+
+footer {
+	position: relative;
+	background-color: #2E2900;
+	color: white;
+	padding-top: 4em;
+	padding-bottom: 4em;
+	font-size: 0.8em;
+
+	> section {
+		display: flex;
+		justify-content: space-between;
+		max-width: 600px;
+		overflow: auto;
+	}
+
+	img {
+		height: 160px;
+		// don't stretch 
+		align-self: baseline;
+	}
+
+	nav.social {
+		padding: 0 2em;
+
+		@media screen and (min-width: 580px) {
+			padding: 0 3em;
+		}
+	}
+
+	nav.site {
+		padding-right: 1em;
+	}
+
+	li {
+		margin-bottom: 0.4em;
+	}
+
+	h4 {
+		margin: 0;
+		line-height: inherit;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0; right: 0;
+		top: -57px;
+		height: 120px;
+		margin: auto;
+		max-width: var(--main-width);
+		background: url(/assets/images/tähti19.png) 1em 0%;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+}
+
+h1,h2,h3,h4 {
+	font-family: var(--heading-font-family);
+	line-height: 1;
+
+	a:hover {
+		border-bottom: var(--linkborderbottom);
+		/*display: inline-block;
+		line-height: 0.9;*/
+	}
+}
+
+main > header {
+	margin: 1em auto 0.2em;
+
+	> h1 {
+		// border-bottom: solid .3em #e6dfa1;
+		font-size: 2em;
+
+		// hackyyyyy… https://css-tricks.com/styling-underlines-web/
+		box-shadow: inset 0 -0.1em white, inset 0 -0.4em #e6dfa1;
+
+		display: inline;
+		padding: 0 0.3em;
+
+		box-decoration-break: clone;
+		-webkit-box-decoration-break: clone;
+	}
+}
+
+p {
+	line-height: 1.8;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+p a:hover {
+	text-decoration: underline;
+}
+
+address {
+	font-style: normal;
+}
+
+code {
+	font-size: 1.2em;
+	padding: 0.05em 0.3em;
+	border-radius: 3px;
+	background-color: rgba(255,255,255,0.2);
+}
+
+hr {
+	width: 60%;
+	border: none;
+	margin: 24px auto;
+}
+
+figure {
+	position: relative;
+	margin-left: 0;
+	margin-right: 0;
+
+	img {
+		max-width: 100%;
+	}
+}
+
+iframe {
+	border: none;
+}
+
+.hidden, .hide {
+	display: none !important;
+}
+
+/* video gallery not in use… */
+.flexirow {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	@media (min-width: 480px) {
+		flex-direction: row;
+
+		> :not(:first-child) {
+			margin-left: 1em;
+		}
+	}
+}
+
+/* video gallery griddd */
+.filmgrid, .tag-filmgrid > .post-content {
+	// we have a tight schedule 
+	font-size: 0;
+
+	input {
+		position: absolute;
+		font-size: 1.8rem;
+		top: -2em;
+		right: 0;
+	}
+
+	> figure {
+		/* reset that 0 above */
+		font-size: 1rem;
+
+		// max-width: 640px;
+
+		display: inline-block;
+		box-sizing: border-box;
+
+		margin: 0;
+		padding: 8px;
+		// padding-right: 1em;
+
+		/* vimeo show title & controls breakpoint: 300px; */
+		/* (width + padding) * per-row + main-padding */
+		/* VAR --breakpoint: 240px; ??? */
+
+		width: 100%; /* default */
+		@media (min-width: calc((300px + 16px) * 2 + 32px)) { width: calc(100% / 2); }
+		@media (min-width: calc((300px + 16px) * 3 + 32px)) { width: calc(100% / 3); }
+		@media (min-width: calc((300px + 16px) * 4 + 32px)) { width: calc(100% / 4); }
+
+		img {
+			// widdu alapidennys vuodelta 2009 
+			display: block;
+			position: absolute;
+
+			// for vimeo 21:9 thumbs
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		button {
+			position: absolute;
+			top: 0; left: 0;
+			bottom: 0; right: 0;
+
+			margin: auto;
+			padding: 0;
+
+			width: 100px;
+			height: 100px;
+
+			background: transparent;
+			border: none;
+			cursor: pointer;
+
+			svg {
+				fill: white;
+				width: 100%;
+				height: 100%;
+			}
+
+			opacity: 0;
+
+			&:hover, &:active, &:focus {
+				opacity: 0.5;
+			}
+		}
+
+		/* mimic some vimeo here */
+		figcaption {
+			position: absolute;
+			top: 0; left: 0;
+			padding: 0.1em 0.2em;
+			margin: 18px;
+
+			color: rgb(0, 173, 239);
+			background: rgba(23, 35, 34, 0.75);
+
+			font-size: 1.3em;
+			font-weight: bold;
+			font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
+
+			// wrap under_lined_film_titles
+			overflow-wrap: break-word;
+			word-break: break-word;
+
+			a:hover {
+				color: rgb(255, 82, 16);
+			}
+		}
+
+		> * {
+			transition: opacity 0.2s, visibility 0.2s;
+		}
+
+		/* fade away when we load or play */
+		&.load > button,
+		&.play > figcaption {
+			visibility: hidden;
+			opacity: 0;
+		}
+	}
+}
+
+/* koenig gallery */
+.kg-embed-card {
+	margin-bottom: 1em;
+	width: 100%;
+
+	// space for two cards 
+	// max-width: calc(calc(var(--main-width) / 2) - 0.5em);
+}
+
+.fitVids-wrapper {
+	/* default 16:9 or fitvids override */
+	padding-bottom: 56.25%;
+	position: relative;
+	width: 100%;
+
+	/* need double deep for side-by-side & max 640x480 */
+	> iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+
+countdown {
+	display: block;
+	position: relative;
+
+	background-color: #eee;
+	padding: 1px 1em 4em;
+	margin: 4em auto 8em;
+
+	font-family: var(--heading-font-family);
+	text-align: center;
+
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+
+	span {
+		position: relative;
+		font-size: 3em;
+
+		@media screen and (max-width: 639px) {
+			font-size: 6vw;
+		}
+
+		&:not(:first-child)::before {
+			content: ":";
+			opacity: 0.8;
+			padding: 0 .4em;
+		}
+
+		&::after {
+			opacity: 0.8;
+			font-size: 0.6em;
+			vertical-align: top;
+		}
+	}
+
+	.day::after { content: "d"; }
+	.h::after { content: "h"; }
+	.min::after { content: "min"; }
+	.s::after { content: "s"; }
+
+	&::before {
+		background: url(/assets/images/simpukka.png) 2% 95%,
+		            url(/assets/images/tiimalasi.png) 50% 100%;
+	}
+	&::after {
+		background: url(/assets/images/simpukka.png) 2% 95%;
+		transform: scaleX(-1);
+	}
+	&::after, &::before {
+		content: "";
+		position: absolute;
+		left: 0; right: 0;
+		top: 0; bottom: 0;
+		max-width: calc(var(--main-width) + 120px);
+		margin: -4em auto;
+		background-repeat: no-repeat;
+		background-size: 150px, 70px;
+
+		@media screen and (max-width: 719px) {
+			background-size: 120px, 70px;
+		}
+	}
+}
+
+#sponsorit {
+	margin-top: 4em;
+	margin-bottom: 5em;
+	text-align: center;
+
+	figure {
+		display: inline-block;
+		box-sizing: border-box;
+		vertical-align: middle;
+		padding: 1em;
+		// beware whitespace
+		width: 32%;
+
+		img {
+			max-width: 100%;
+		}
+
+		&.wide {
+			display: block;
+			margin: 1em auto;
+			width: 40%;
+		}
+
+		[src$="heo.svg"] {
+			width: 70%;
+		}
+	}
+}
+
+/* KOENIG STUFF (TODO) */
+
+.kg-width-wide {
+	max-width: 100%;
+
+	.kg-image {
+		width: 100%;
+	}
+}
+
+.kg-width-full .kg-image {
+	max-width: 100vw;
+
+	.kg-image {
+		width: 100%;
+	}
+
+}
+
+.full-width {
+	position: relative;
+	left: 50%;
+	right: 50%;
+	width: 100vw;
+	margin-left: -50vw;
+	margin-right: -50vw;
+}
