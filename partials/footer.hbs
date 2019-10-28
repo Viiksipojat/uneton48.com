@@ -1,0 +1,57 @@
+<footer class="site-footer">
+    <section>
+        <img src="{{@site.icon}}" alt="uneton silmä">
+        <nav class="social">
+            <ul>
+                <li>
+                {{#if @site.facebook}}
+                    <a class="social-link social-link-fb" href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+                {{/if}}
+                </li>
+
+                <li>
+                {{#if @site.twitter}}
+                    <a class="social-link social-link-tw" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+                {{/if}}
+                </li>
+
+                <li>
+                    <a class="social-link social-link-vi" href="https://vimeo.com/uneton48" title="Vimeo" target="_blank" rel="noopener">{{> "icons/vimeo"}}</a>
+                </li>
+
+                <li>
+                    <a class="social-link social-link-ig" href="https://instagram.com/uneton48" title="Instagram" target="_blank" rel="noopener">{{> "icons/instagram"}}</a>
+                </li>
+
+                <li>
+                {{#if @labs.subscribers}}
+                    <a class="subscribe-button" href="#subscribe">Subscribe</a>
+                {{else}}
+                    <a class="rss-button" href="{{@site.url}}/rss/" title="RSS" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
+                {{/if}}
+                </li>
+            </ul>
+        </nav>
+        <nav class="site">
+            <ul>
+                <li>Uneton48</li>
+                <li>Tarina</li>
+                <li>Tiedotteet</li>
+                <li>Warm-up kilpailu</li>
+                <li>Kilpailu</li>
+                <li>Palautus</li>
+                <li>Elokuvat</li>
+            </ul>
+        </nav>
+        <address>
+            <h4>Yhteystiedot</h4>
+            <p>Mäkelänkatu x Hollolantie<br>
+            00520 Helsinki<br>
+            Finland<br>
+            info (at) uneton48.com</p>
+        </address>
+        <!-- <section class="subscribe">
+            <h4>Tilaa uutiskirje</h4>
+        </section> -->
+    </section>
+</footer>
