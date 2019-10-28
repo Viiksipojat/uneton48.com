@@ -1,0 +1,19 @@
+<nav class="site-nav">
+    <div class="site-nav-left">
+        <a class="site-nav-logo" href="{{@site.url}}">
+            {{#if @site.logo}}
+                <img src="{{@site.logo}}" alt="{{@site.title}}" />
+            {{else}}
+                {{@site.title}}
+            {{/if}}
+        </a>
+        {{#if @site.navigation}}
+            {{navigation}}
+        {{/if}}
+    </div>
+    <div id="lang-switch" class="site-nav-right">
+        <a rel="alternate" hreflang="fi" href="/fi/">Fi</a>
+        <span>/</span>
+        <a rel="alternate" hreflang="en" href="/en/">En</a>
+    </div>
+</nav>

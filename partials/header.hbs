@@ -1,0 +1,21 @@
+<header class="site-header">
+    {{> "site-nav"}}
+
+    <h1 class="site-title">
+        {{#if @site.cover_image}}
+        <figure class="cover-image">
+            <img
+                srcset="{{img_url @site.cover_image size="l"}} 1x,
+                        {{img_url @site.cover_image size="xl"}} 2x"
+                src="{{img_url @site.cover_image size="l"}}"
+                alt="{{@site.title}}"
+            />
+        </figure>
+
+        {{else}}
+        {{@site.title}}
+        {{/if}}
+    </h1>
+
+    <!-- <h2 class="site-description">{{@site.description}}</h2> -->
+</header>
