@@ -2,8 +2,8 @@
 	--main-width: 960px;
 	--filmgrid-width: 1400px;
     --linkborderbottom: 0.25em solid;
-    --nav-font-size: 1em;
-    --heading-font-family: 'IBM Plex Mono', monospace;
+    --nav-font-size: 1.3em;
+    --heading-font-family: 'Kreon', sans-serif;
 }
 
 html {
