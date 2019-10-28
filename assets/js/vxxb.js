@@ -28,6 +28,43 @@ templates.forEach(function(component) {
 	})
 })
 
+// plz place this multilang sitemap hack into your ghost > code injection > {{ghost_head}}
+// var sitemap = {
+// 	index: {
+// 		fi: "/",
+// 		en: "/en/",
+// 	},
+// }
+
+if (! window.sitemap) var sitemap = {}
+var sitemap_reverse = {}
+
+for (var site in sitemap) {
+	for (var lang in sitemap[site])
+		sitemap_reverse[sitemap[site][lang]] = sitemap[site]
+}
+// inject alternate language target
+document.querySelectorAll("#lang-switch a").forEach(function(a) {
+	var path = sitemap_reverse[location.pathname]
+	if (path) a.href = path[a.hreflang]
+
+	if (a.getAttribute("href") == location.pathname) a.classList.add("current")
+})
+
+// hide alternate language navigation
+document.querySelectorAll("#navigation li").forEach(function(li) {
+	// var currentLang = document.documentElement.lang // GHOST FAIL
+	var current = document.querySelector("#lang-switch a.current")
+	var currentLang = current ? current.hreflang : "fi" // fi default
+	var href = li.firstChild.getAttribute("href")
+
+	// maybe bail
+	if (! sitemap_reverse[href]) return
+
+	if (sitemap_reverse[href][currentLang] != href) li.classList.add("hidden")
+})
+document.querySelector("#navigation").classList.remove("hidden")
+
 
 // <TEMPLATE> COMPONENTS (autoloaded in the beginning)
 

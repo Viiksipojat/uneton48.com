@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<html>
+{{#page}}
+<html lang="
+    {{~#has tag="fi"}}fi
+    {{~else has tag="en"}}en
+    {{~else}}{{@site.lang}}{{/has}}
+">
+{{/page}}
 <head>
 
     {{!-- Document Settings --}}
