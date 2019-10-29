@@ -2,7 +2,17 @@
     {{> "site-nav"}}
 
     <h1 class="site-title">
-        {{#if @site.cover_image}}
+        {{#if post.feature_image}}
+        <figure class="post-full-image">
+            <img
+                srcset="{{img_url post.feature_image size="l"}} 1x,
+                        {{img_url post.feature_image size="xl"}} 2x"
+                src="{{img_url post.feature_image size="l"}}"
+                alt="{{title}}"
+            />
+        </figure>
+
+        {{else if @site.cover_image}}
         <figure class="cover-image">
             <img
                 srcset="{{img_url @site.cover_image size="l"}} 1x,
