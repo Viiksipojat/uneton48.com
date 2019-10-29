@@ -1,0 +1,6 @@
+<ul id="navigation" class="nav" role="menu">
+    {{#foreach navigation}}
+        {{!-- TODO: show only current language links --}}
+        <li class="{{link_class for=(url) class=(concat "nav-" slug)}}" role="menuitem"><a href="{{url}}">{{label}}</a></li>
+    {{/foreach}}
+</ul>
