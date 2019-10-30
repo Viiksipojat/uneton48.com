@@ -70,7 +70,15 @@ document.querySelectorAll("figure > button").forEach(function(btn) {
 	btn.addEventListener("click", function(e) {
 		var figure = btn.parentElement
 		var vimeo = figure.querySelector("iframe[data-src]")
+		var img = figure.querySelector("img[data-src]")
 		// console.log(figure)
+
+		// no iframe that's clever much faster pageload 😇
+		if (! vimeo) {
+			vimeo = document.createElement("iframe")
+			vimeo.dataset.src = "https://player.vimeo.com/video/" + figure.id.replace(/^v_/, "")
+			img.parentElement.appendChild(vimeo)
+		}
 
 		// igniteeeee
 		figure.classList.add("load")
