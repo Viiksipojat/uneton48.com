@@ -28,16 +28,17 @@
         // Set the options to make LazyLoad self-initialize
         window.lazyLoadOptions = {
             elements_selector: ".lazy",
-            // ... more custom settings?
+            // wait for fitvids...?
+            // load_delay: 0
         };
     </script>
     <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.2.0/dist/lazyload.min.js"></script>
     
-    {{!-- maybe load iframes faster…? --}}
+    {{!-- custom iframe load/play/pause --}}
     <script async src="https://player.vimeo.com/api/player.js"></script>
 
     {{! DEVELOPMENT ONLY HEH HEH }}
-    <script src="http://localhost:35729/livereload.js"></script>
+    <script async src="http://localhost:35729/livereload.js"></script>
 
     {{!-- This tag outputs SEO meta+structured data and other important settings --}}
     {{ghost_head}}

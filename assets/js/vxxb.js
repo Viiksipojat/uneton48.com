@@ -66,12 +66,24 @@ document.querySelectorAll("#navigation li").forEach(function(li) {
 document.querySelector("#navigation").classList.remove("hidden")
 
 // lazy loader vimeo player play button
-document.querySelectorAll("figure > button").forEach(function(btn) {
-	btn.addEventListener("click", function(e) {
-		var figure = btn.parentElement
-		var vimeo = figure.querySelector("iframe[data-src]")
-		var img = figure.querySelector("img[data-src]")
-		// console.log(figure)
+// document.querySelectorAll("figure").forEach(function(figure) {
+document.querySelectorAll(".filmgrid > figure, .tag-filmgrid > .post-content > figure").forEach(function(figure) {
+	// warning: these are lazy selects
+	var vimeo = figure.querySelector("iframe")
+	var img = figure.querySelector("img")
+	var button = figure.querySelector("button")
+
+	if (! button) {
+		button = document.createElement("button")
+		button.innerHTML = '\
+			<svg xmlns="http://www.w3.org/2000/svg">\n\
+				<use href="#vimeo-play" xlink:href="#vimeo-play"></use>\n\
+			</svg>'
+		figure.appendChild(button)
+	}
+
+	button.addEventListener("click", function(e) {
+		// console.log("vimeo", figure, vimeo)
 
 		// no iframe that's clever much faster pageload 😇
 		if (! vimeo) {
@@ -91,7 +103,7 @@ document.querySelectorAll("figure > button").forEach(function(btn) {
 		// coustom fun
 		var player = new Vimeo.Player(vimeo)
 		player.on("loaded", function(e) {
-			console.info("loaded", e)
+			// console.info("loaded", e)
 			// player.play()
 		})
 		player.on("play", function(e) {

@@ -14,9 +14,9 @@
 	var players = [
 		'iframe[src*="youtube.com"]',
 		'iframe[src*="vimeo.com"]',
-		'iframe.lazy',
 		// 'iframe[data-src*="youtube.com"]',
 		// 'iframe[data-src*="vimeo.com"]',
+		'.fitvid',
 	]
 	
 	// Select videos
