@@ -276,8 +276,9 @@ iframe {
 
 /* video gallery griddd */
 .filmgrid, .tag-filmgrid > .post-content {
-	// we have a tight schedule 
-	font-size: 0;
+	// we do awkward comment <!-- --> escaping instead
+	// (to remove whitespace in year 2020)
+	// font-size: 0;
 
 	/* TODO HAKU */
 	input {
@@ -367,10 +368,10 @@ iframe {
 			padding: 0.1em 0.2em;
 			margin: 18px;
 
-			color: rgb(0, 173, 239);
+			color: white;
 			background: rgba(23, 35, 34, 0.75);
 
-			font-size: 1.3em;
+			font-size: 1.2em;
 			font-weight: bold;
 			font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
 
@@ -378,8 +379,17 @@ iframe {
 			overflow-wrap: break-word;
 			word-break: break-word;
 
+			a {
+				color: rgb(0, 173, 239);
+			}
+
 			a:hover {
 				color: rgb(255, 82, 16);
+			}
+
+			small {
+				display: block;
+				font-size: 0.8em;
 			}
 		}
 

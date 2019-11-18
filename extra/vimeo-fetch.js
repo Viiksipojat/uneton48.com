@@ -216,15 +216,18 @@ function debugTSVgenerator(vimeos) {
 function HTMLgenerator(vimeos, advanced=false) {
 	let html_basic = "", html_advanced = ""
 
+	// NOTE: we do awkward comment <!-- --> escaping
 	for (const vimeo of vimeos) {
 		html_basic += 
 `<figure id="v_${vimeo.id}">
-	<img class="lazy" data-src="${vimeo.thumbnail}">
+	<img class="lazy fitvid" data-src="${vimeo.thumbnail}">
 	<figcaption>
 		<a href="${vimeo.link}">${vimeo.name}</a>
+		<small>${vimeo.description || ""}</small>
 	</figcaption>
-</figure>
-`
+</figure><!--
+-->`
+
 	// NOTE: even an empty iframe slows page load ~ 1s / 100 iframe
 		html_advanced += 
 `<figure id="v_${vimeo.id}">
@@ -238,10 +241,11 @@ function HTMLgenerator(vimeos, advanced=false) {
 		</svg>
 	</button>
 	<figcaption>
-		<a href="${vimeo.link}">${vimeo.name}</a>
+		<h2><a href="${vimeo.link}">${vimeo.name}</a></h2>
+		<h3>${vimeo.description || ""}</h3>
 	</figcaption>
-</figure>
-`
+</figure><!--
+-->`
 	}
 
 	return advanced ? html_advanced : html_basic
