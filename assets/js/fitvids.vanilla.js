@@ -16,6 +16,7 @@
 		'iframe[src*="vimeo.com"]',
 		// 'iframe[data-src*="youtube.com"]',
 		// 'iframe[data-src*="vimeo.com"]',
+		'iframe.lazy',
 		'.fitvid',
 	]
 	

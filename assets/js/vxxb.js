@@ -73,7 +73,8 @@ document.querySelectorAll(".filmgrid > figure, .tag-filmgrid > .post-content > f
 	var img = figure.querySelector("img")
 	var button = figure.querySelector("button")
 
-	if (! button) {
+	// we have no button and no iframe, let's orchestrate them
+	if (! button && ! vimeo) {
 		button = document.createElement("button")
 		button.innerHTML = '\
 			<svg xmlns="http://www.w3.org/2000/svg">\n\
@@ -82,7 +83,7 @@ document.querySelectorAll(".filmgrid > figure, .tag-filmgrid > .post-content > f
 		figure.appendChild(button)
 	}
 
-	button.addEventListener("click", function(e) {
+	button && button.addEventListener("click", function(e) {
 		// console.log("vimeo", figure, vimeo)
 
 		// no iframe that's clever much faster pageload 😇
