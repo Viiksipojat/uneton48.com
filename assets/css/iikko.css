@@ -432,6 +432,7 @@ iframe {
 	}
 }
 
+/* TEMPLATE COMPONENTS */
 
 countdown {
 	display: block;
@@ -497,7 +498,8 @@ countdown {
 	}
 }
 
-#sponsorit {
+sponsorit {
+	display: block;
 	margin-top: 4em;
 	margin-bottom: 5em;
 	text-align: center;

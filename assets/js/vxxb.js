@@ -14,17 +14,19 @@ if (window.NodeList && ! NodeList.prototype.forEach) {
 	NodeList.prototype.forEach = Array.prototype.forEach
 }
 
-// expand components
+// expand template components
 var components = [], templates = document.querySelectorAll("template")
-templates.forEach(function(component) {
-	var id = component.id
+templates.forEach(function(template) {
+	var id = template.id
 	var targets = document.querySelectorAll(id)
-	// console.debug("COMPONENT", id, targets)
+	console.debug("COMPONENT", id, targets)
 
 	targets.forEach(function(target) {
-		var clone = document.importNode(component.content, true)
+		var clone = document.importNode(template.content, true)
 		target.appendChild(clone)
-		components.push(new window[id](target))
+		// window[id] component functions at the bottom
+		var component = window[id] instanceof Function ? new window[id](target) : target
+		components.push(target)
 	})
 })
 
