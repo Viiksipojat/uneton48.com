@@ -1,10 +1,12 @@
 routes:
   /:
-    data: page.index-fi
-    template: index
+    data: 
+      post: page.index-fi
+    template: post
   /en/:
-    data: page.index-en
-    template: index
+    data: 
+      post: page.index-en
+    template: post
 
 collections:
   /en/:
