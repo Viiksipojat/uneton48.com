@@ -1,0 +1,19 @@
+routes:
+  /:
+    data: page.index-fi
+    template: index
+  /en/:
+    data: page.index-en
+    template: index
+
+collections:
+  /en/:
+    permalink: /en/{slug}/
+    filter: 'tag:en'
+  /fi/:
+    permalink: /fi/{slug}/
+    filter: 'tag:fi'
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/
