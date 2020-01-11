@@ -1,0 +1,11 @@
+{{!< default}}
+
+<main>
+    <header class="news-header">
+        <h1>News</h1>
+    </header>
+
+    {{#foreach posts}}
+    {{> "post-card"}}
+    {{/foreach}}
+</main>

@@ -1,0 +1,23 @@
+<article class="post-card {{post_class}}">
+
+    <a class="post-card-content-link" href="{{url}}">
+
+        <header class="post-card-header">
+            <section class="meta">
+                <time datetime="{{date format="YYYY-MM-DD HH:mm:ss"}}">{{date format="D. MMMM[ta] YYYY [klo] H.mm"}}</time>
+                <span class="post-card-author">// {{primary_author.name}}</span>
+                {{#if primary_tag}}
+                    <span class="post-card-tags">// {{primary_tag.name}}</span>
+                {{/if}}
+            </section>
+
+            <h2 class="post-card-title">{{title}}</h2>
+        </header>
+
+        <section class="post-card-excerpt">
+            <p>{{excerpt}}</p>
+        </section>
+
+    </a>
+
+</article>

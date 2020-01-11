@@ -9,12 +9,9 @@ routes:
     template: post
 
 collections:
-  /en/:
-    permalink: /en/{slug}/
-    filter: 'tag:en'
-  /fi/:
-    permalink: /fi/{slug}/
-    filter: 'tag:fi'
+  /news/:
+    permalink: /news/{slug}/
+    template: news
 
 taxonomies:
   tag: /tag/{slug}/
