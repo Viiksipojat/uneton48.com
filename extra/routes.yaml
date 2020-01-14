@@ -11,7 +11,7 @@ routes:
 collections:
   /news/:
     permalink: /news/{slug}/
-    template: news
+    template: index
 
 taxonomies:
   tag: /tag/{slug}/
