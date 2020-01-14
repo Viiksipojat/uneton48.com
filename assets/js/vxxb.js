@@ -19,7 +19,7 @@ var components = [], templates = document.querySelectorAll("template")
 templates.forEach(function(template) {
 	var id = template.id
 	var targets = document.querySelectorAll(id)
-	console.debug("COMPONENT", id, targets)
+	// console.debug("COMPONENT", id, targets)
 
 	targets.forEach(function(target) {
 		var clone = document.importNode(template.content, true)
@@ -54,7 +54,9 @@ document.querySelectorAll("#lang-switch a").forEach(function(a) {
 })
 
 // hide alternate language navigation
-document.querySelectorAll("#navigation li").forEach(function(li) {
+var navigation = document.querySelector("nav.site-nav ul.nav")
+
+navigation.querySelectorAll("li").forEach(function(li) {
 	// var currentLang = document.documentElement.lang // GHOST FAIL
 	var current = document.querySelector("#lang-switch a.current")
 	var currentLang = current ? current.hreflang : "fi" // fi default
@@ -65,7 +67,7 @@ document.querySelectorAll("#navigation li").forEach(function(li) {
 
 	if (sitemap_reverse[href][currentLang] != href) li.classList.add("hidden")
 })
-document.querySelector("#navigation").classList.remove("hidden")
+// navigation.classList.remove("hidden")
 
 // lazy loader vimeo player play button
 // document.querySelectorAll("figure").forEach(function(figure) {
@@ -74,6 +76,9 @@ document.querySelectorAll(".filmgrid > figure, .tag-filmgrid > .post-content > f
 	var vimeo = figure.querySelector("iframe")
 	var img = figure.querySelector("img")
 	var button = figure.querySelector("button")
+
+	// let's zap all text nodes after figures to rid whitespace in year 2020
+	if (figure.nextSibling.nodeType == 3) figure.parentElement.removeChild(figure.nextSibling)
 
 	// we have no button and no iframe, let's orchestrate them
 	if (! button && ! vimeo) {
