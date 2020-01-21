@@ -89,6 +89,10 @@ header.post-card-header, header.post-full-header {
 .post-card-excerpt > :last-child {
 	margin-bottom: 0;
 }
+// vain news metadata
+body:not(.tag-news) header.post-full-header .meta {
+	display: none;
+}
 
 nav {
 	font-family: var(--heading-font-family);
@@ -128,6 +132,7 @@ nav {
 		}
 	}
 
+	// top main navigation
 	&.site-nav {
 		display: flex;
 		align-items: baseline;
@@ -137,7 +142,7 @@ nav {
 			border-bottom: var(--linkborderbottom);
 			pointer-events: none;
 		}
-		a:hover {
+		a:not(.site-nav-logo):hover {
 			border-bottom: var(--linkborderbottom);
 		}
 
