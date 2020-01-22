@@ -1,16 +1,24 @@
 routes:
   /:
     data: 
-      post: page.index-fi
+      post: page.uneton
     template: post
   /en/:
     data: 
-      post: page.index-en
+      post: page.sleepless
     template: post
+  /en/uneton/:
+    template: post
+    data:
+      post: page.sleepless
+  /en/docs/:
+    template: post
+    data:
+      post: page.docs_en
 
 collections:
   /news/:
-    permalink: /news/{slug}/
+    permalink: /{slug}/
     template: index
 
 taxonomies:
