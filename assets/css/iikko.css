@@ -37,8 +37,11 @@ main {
 	flex-grow: 1;
 
 	padding: 0 1em;
-	margin: auto;
-	max-width: var(--main-width);
+
+	> * {
+		margin: auto;
+		max-width: var(--main-width);
+	}
 }
 
 /* custom articles */
