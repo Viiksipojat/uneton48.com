@@ -19,27 +19,26 @@ body {
 	// protect ios9 flex-shrinkage
 	min-height: 100%;
 	
-	> * {
-		padding: 0 1em;
+}
 
-		> nav {
-			padding: 0 calc((100% - 960px)/2);
-			border-bottom: 1px solid #ddd;
-			padding-bottom: 1em;
-			// TODO: valuu pikakse yli oikealta
-			margin: 0 -1em;
-		}
-
-		> *:not(nav) {
-			max-width: var(--main-width);
-			margin: auto;
-		}
+header.site-header {
+	> nav {
+		padding: 0 calc((100% - 960px)/2) 1em;
+		border-bottom: 1px solid #ddd;
+	}
+	> :not(nav) {
+		margin: auto;
+		max-width: var(--main-width);
 	}
 }
 
 main {
 	// take available space 
 	flex-grow: 1;
+
+	padding: 0 1em;
+	margin: auto;
+	max-width: var(--main-width);
 }
 
 /* custom articles */
@@ -184,6 +183,7 @@ footer {
 		justify-content: space-between;
 		max-width: 560px;
 		overflow: auto;
+		margin: auto;
 
 		> * {
 			margin: 0 1em;
