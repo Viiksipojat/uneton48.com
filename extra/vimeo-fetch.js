@@ -47,6 +47,12 @@ process.on('SIGINT', async function(code) {
 
 // BEGIN MAIN
 
+// ENVIRONMENT
+if (process.env.VIMEO_CLIENT) options.client = process.env.VIMEO_CLIENT
+if (process.env.VIMEO_TOKEN) options.token = process.env.VIMEO_TOKEN
+if (process.env.VIMEO_SECRET) options.secret = process.env.VIMEO_SECRET
+
+// CLIENT & GLOBALS
 let client = new Vimeo(options.client, options.secret, options.token)
 let jobs = [], videos = {}, countedVideos = 0, totalVideos
 
@@ -68,6 +74,11 @@ Options (they are optional)
         -n  dry-run
         -r  [TODO] "recursively" attempt to fetch and inject PATH/videos
      --raw  don't parse vimeo output, use if not fetching videos
+
+Environment variables (also optional)
+    VIMEO_CLIENT  vimeo api public client id
+    VIMEO_TOKEN   vimeo api private token, https://developer.vimeo.com/apps
+    VIMEO_SECRET  vimeo api private secret, not sure when would it be needed
 
 Outputs (pass to enable)
     --html  template'd html figure img shit
@@ -167,11 +178,8 @@ function parseVimeoChunk(body) {
 	countedVideos += body.data.length
 
 	if (params["--raw"]) return body.data
-
-	// filter empty (failed upload) & unlisted videos + parse metadata
-	return body.data
-		.filter(v => v.duration > 0 && v.privacy.view == "anybody")
-		.map(filterVideoMetadata)
+	
+	return body.data.map(filterVideoMetadata)
 }
 
 function addVimeoPageJobs(body) {
