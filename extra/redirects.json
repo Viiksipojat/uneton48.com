@@ -1,12 +1,12 @@
 [
 	{
-		"from": "^/$",
-		"to": "/docs/",
+		"from": "^/docs/$",
+		"to": "/",
 		"permanent": false
 	},
 	{
-		"from": "^/en/$",
-		"to": "/en/docs/",
+		"from": "^/en/docs/$",
+		"to": "/en/",
 		"permanent": false
 	}
 ]
