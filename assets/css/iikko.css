@@ -254,17 +254,6 @@ footer {
 	}
 }
 
-h1,h2,h3,h4 {
-	font-family: var(--heading-font-family);
-	line-height: 1;
-
-	a:hover {
-		border-bottom: var(--linkborderbottom);
-		/*display: inline-block;
-		line-height: 0.9;*/
-	}
-}
-
 main > header {
 	margin: 1em auto 2em;
 
@@ -283,17 +272,32 @@ main > header {
 	}
 }
 
-p {
-	line-height: 1.8;
-}
-
 a {
 	text-decoration: none;
 	color: inherit;
 }
 
-p a:hover {
-	text-decoration: underline;
+p {
+	line-height: 1.8;
+
+	a {
+		text-decoration: underline;
+	}
+}
+
+h1,h2,h3,h4 {
+	font-family: var(--heading-font-family);
+	line-height: 1;
+
+	a {
+		text-decoration: underline;
+	}
+
+	a:hover {
+		border-bottom: var(--linkborderbottom);
+		/*display: inline-block;
+		line-height: 0.9;*/
+	}
 }
 
 address {
