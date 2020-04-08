@@ -149,6 +149,13 @@ nav {
 		align-items: baseline;
 		justify-content: space-between;
 
+		a {
+			// warning: multiline nav items get full width & only last line gets border-bottom
+			line-height: 1;
+			display: inline-block;
+			border-bottom: var(--linkborderbottom) transparent;
+		}
+
 		li.nav-current > a {
 			border-bottom: var(--linkborderbottom);
 			pointer-events: none;
