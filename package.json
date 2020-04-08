@@ -2,7 +2,7 @@
     "name": "uneton48.com",
     "description": "Uneton48 ❤︎ Viiksipojat",
     "demo": "http://ghost.viiksipojat.fi",
-    "version": "2020.4.4",
+    "version": "2020.4.8",
     "engines": {
         "ghost": ">=3.1.1",
         "ghost-api": "v3"
