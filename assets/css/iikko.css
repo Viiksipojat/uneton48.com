@@ -148,12 +148,16 @@ nav {
 		align-items: baseline;
 		justify-content: space-between;
 
-		li.nav-current a {
+		li.nav-current > a {
 			border-bottom: var(--linkborderbottom);
 			pointer-events: none;
 		}
 		a:not(.site-nav-logo):hover {
 			border-bottom: var(--linkborderbottom);
+		}
+
+		li:not(.nav-current) > ul {
+			display: none;
 		}
 
 		ul {

@@ -54,9 +54,7 @@ document.querySelectorAll("#lang-switch a").forEach(function(a) {
 })
 
 // hide alternate language navigation
-var navigation = document.querySelector("nav.site-nav ul.nav")
-
-navigation.querySelectorAll("li").forEach(function(li) {
+document.querySelectorAll("nav.site-nav ul.nav > li").forEach(function(li) {
 	// var currentLang = document.documentElement.lang // GHOST FAIL
 	var current = document.querySelector("#lang-switch a.current")
 	var currentLang = current ? current.hreflang : "fi" // fi default
