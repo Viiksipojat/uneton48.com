@@ -129,7 +129,7 @@ nav {
 	}
 
 	/* aside lang */
-	.site-nav-right {
+	#lang-switch {
 		margin: 0 1em;
 		flex-shrink: 0;
 		font-weight: 600;
