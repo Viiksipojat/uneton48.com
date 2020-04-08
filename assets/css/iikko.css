@@ -2,6 +2,7 @@
 	--main-width: 960px;
 	--filmgrid-width: 1400px;
 	--linkborderbottom: 0.25em solid;
+	--linkboxshadow: inset 0 0em #fff, inset 0 -0.2em;
 	--nav-font-size: 1.3em;
 	--heading-font-family: 'Kreon', sans-serif;
 }
@@ -295,12 +296,16 @@ h1,h2,h3,h4 {
 
 	a {
 		text-decoration: underline;
+		// this works ok except for multiline links, only last line gets border-bottom
+		// border-bottom: var(--linkborderbottom) transparent;
+		// display: inline-block;
+		// line-height: 0.8;
 	}
 
 	a:hover {
-		border-bottom: var(--linkborderbottom);
-		/*display: inline-block;
-		line-height: 0.9;*/
+		// border-bottom: var(--linkborderbottom);
+		// his is a nice hack though (and with inherited color)
+		box-shadow: var(--linkboxshadow);
 	}
 }
 
