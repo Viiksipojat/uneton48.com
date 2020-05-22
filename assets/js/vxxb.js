@@ -94,7 +94,7 @@ document.querySelectorAll(".filmgrid > figure, .tag-filmgrid > .post-content > f
 		// no iframe that's clever much faster pageload 😇
 		if (! vimeo) {
 			vimeo = document.createElement("iframe")
-			vimeo.dataset.src = "https://player.vimeo.com/video/" + figure.id.replace(/^v_/, "")
+			vimeo.dataset.src = "https://player.vimeo.com/video/" + figure.id.replace(/^v_/, "").replace(/:.*$/, "")
 			img.parentElement.appendChild(vimeo)
 		}
 
