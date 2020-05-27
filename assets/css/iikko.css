@@ -400,8 +400,6 @@ iframe {
 
 		width: 100%; /* default */
 		@media (min-width: calc((300px + 16px) * 2 + 32px)) { width: calc(100% / 2); }
-		@media (min-width: calc((300px + 16px) * 3 + 32px)) { width: calc(100% / 3); }
-		@media (min-width: calc((300px + 16px) * 4 + 32px)) { width: calc(100% / 4); }
 
 		img {
 			// widdu alapidennys vuodelta 2009 
@@ -496,6 +494,14 @@ iframe {
 			visibility: hidden;
 			opacity: 0;
 		}
+	}
+}
+
+// how many box in a row? only wide grid 4 box in a row
+.filmgrid .wide, .tag-filmgrid .tag-wide > .post-content {
+	figure {
+		@media (min-width: calc((300px + 16px) * 3 + 32px)) { width: calc(100% / 3); }
+		@media (min-width: calc((300px + 16px) * 4 + 32px)) { width: calc(100% / 4); }
 	}
 }
 
