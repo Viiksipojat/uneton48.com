@@ -386,7 +386,7 @@ iframe {
 		right: 0;
 	}
 
-	> figure {
+	> figure:not(.kg-card) {
 		/* reset that 0 above */
 		font-size: 1rem;
 
@@ -504,7 +504,7 @@ iframe {
 
 // how many box in a row? only wide grid 4 box in a row
 .filmgrid .wide, .tag-filmgrid .tag-wide > .post-content {
-	figure {
+	figure:not(.kg-card) {
 		@media (min-width: calc((300px + 16px) * 3 + 32px)) { width: calc(100% / 3); }
 		@media (min-width: calc((300px + 16px) * 4 + 32px)) { width: calc(100% / 4); }
 	}
