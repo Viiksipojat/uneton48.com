@@ -1,6 +1,33 @@
+{{^if isSecondary}}
 <ul class="nav" role="menu">
     {{#foreach navigation}}
         {{!-- TODO: show only current language links --}}
-        <li class="{{link_class for=(url) class=(concat "nav-" slug)}}" role="menuitem"><a href="{{url}}">{{label}}</a></li>
+        <li class="{{link_class for=(url) class=(concat "nav-" slug)}}" role="menuitem"><a href="{{url}}">{{label}}</a>
+        {{!-- {{#has slug="elokuvat" slug="films"}} only matches the first slug :/ --}}
+        {{#has slug="elokuvat"}}
+            <ul class="films">
+            {{#get "posts" filter="tag:filmgrid"}}
+            {{#foreach posts}}
+                <li class="{{link_class for=(url) class=(concat "nav-" slug)}}" role="menuitem"><a href="{{url}}">{{title}}</a>
+            {{/foreach}}
+            {{/get}}
+            </ul>
+        {{else has slug="films"}}
+            <ul class="films">
+            {{#get "posts" filter="tag:filmgrid"}}
+            {{#foreach posts}}
+                <li class="{{link_class for=(url) class=(concat "nav-" slug)}}" role="menuitem"><a href="{{url}}">{{title}}</a>
+            {{/foreach}}
+            {{/get}}
+            </ul>
+        {{/has}}
+        </li>
     {{/foreach}}
 </ul>
+{{else}}
+<ul class="nav secondary" role="menu">
+    {{#foreach navigation}}
+    <li class="{{link_class for=(url) class=(concat "nav-" slug)}}" role="menuitem"><a href="{{url}}">{{label}}</a></li>
+    {{/foreach}}
+</ul>
+{{/if}}
