@@ -1,6 +1,6 @@
 :root {
 	--main-width: 960px;
-	--filmgrid-width: 1400px;
+	--wide-width: 1400px;
 	--linkborderbottom: 0.25em solid;
 	--linkboxshadow: inset 0 0em #fff, inset 0 -0.2em;
 	--nav-font-size: 1.3em;
@@ -59,9 +59,9 @@ article.post {
 	margin-bottom: 4em;
 }
 
-article.tag-filmgrid:not(.post-card) {
+article.tag-wide:not(.post-card) {
 	position: relative;
-	max-width: var(--filmgrid-width);
+	max-width: var(--wide-width);
 }
 
 body.tag-news > main {
